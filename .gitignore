@@ -1,2 +1,6 @@
 # Ignore all Visual Studio config files
 .vs
+
+# Ignore compiled files
+src/Covid Stats/bin
+src/Covid Stats/obj
