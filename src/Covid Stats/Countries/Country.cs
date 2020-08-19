@@ -25,8 +25,8 @@ namespace CovidStats.Countries
         /// <param name="data">Actual data</param>
         public void AddDataRow(DateTime day, CovidDataRow data)
         {
-            // The first day when pandemic was registered
-            DateTime first_day = new DateTime(2020, 1, 21);
+            // This is done to strip the time part from the index
+            DateTime first_day = new DateTime(2020, 1, 1);
             int day_of_pandemic = (int)(day - first_day).TotalDays;
             this.DataRows[day_of_pandemic] = data;
         }
