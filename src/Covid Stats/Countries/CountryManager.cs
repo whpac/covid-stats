@@ -8,7 +8,7 @@ namespace CovidStats.Countries
 {
     static class CountryManager
     {
-        private static Dictionary<string, Country> ExistingCountries = new Dictionary<string, Country>();
+        private static readonly Dictionary<string, Country> ExistingCountries = new Dictionary<string, Country>();
 
         /// <summary>
         /// Returns a country corresponding to give code
@@ -22,6 +22,15 @@ namespace CovidStats.Countries
                 ExistingCountries[code] = new Country(code);
             }
             return ExistingCountries[code];
+        }
+
+        /// <summary>
+        /// Returns all countries which have been created and saved
+        /// </summary>
+        /// <returns>Array of countries</returns>
+        public static Country[] GetCountries()
+        {
+            return ExistingCountries.Values.ToArray();
         }
     }
 }
