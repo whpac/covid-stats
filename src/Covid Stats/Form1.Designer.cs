@@ -1,4 +1,4 @@
-﻿namespace Covid_Stats
+﻿namespace CovidStats
 {
     partial class Form1
     {

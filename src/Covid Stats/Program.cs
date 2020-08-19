@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Covid_Stats
+namespace CovidStats
 {
     static class Program
     {
