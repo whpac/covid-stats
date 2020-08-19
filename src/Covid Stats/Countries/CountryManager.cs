@@ -10,6 +10,11 @@ namespace CovidStats.Countries
     {
         private static Dictionary<string, Country> ExistingCountries = new Dictionary<string, Country>();
 
+        /// <summary>
+        /// Returns a country corresponding to give code
+        /// </summary>
+        /// <param name="code">Country code</param>
+        /// <returns>Country</returns>
         public static Country GetCountry(string code)
         {
             if(!ExistingCountries.ContainsKey(code))
