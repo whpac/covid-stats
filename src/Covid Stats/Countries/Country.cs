@@ -44,11 +44,11 @@ namespace CovidStats.Countries
             // Read last known
             var dates = this.GetAvailableDates();
             Array.Sort(dates, 0, dates.Length, new DateComparer());
-            foreach(var existing_date in dates)
+            for(int i = dates.Length - 1; i >= 0; i--)
             {
-                if(existing_date < date)
+                if(dates[i] < date)
                 {
-                    return this.DataRows[ParseDayIntoNumber(existing_date)];
+                    return this.DataRows[ParseDayIntoNumber(dates[i])];
                 }
             }
 
@@ -95,7 +95,7 @@ namespace CovidStats.Countries
         {
             public int Compare(DateTime a, DateTime b)
             {
-                return (int)(b - a).TotalSeconds;
+                return (int)(a - b).TotalSeconds;
             }
         }
     }
