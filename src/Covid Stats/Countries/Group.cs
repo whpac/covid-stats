@@ -11,7 +11,7 @@ namespace CovidStats.Countries
     class Group
     {
         public readonly string Name;
-        protected GroupDataInterpolation DataInterpolation;
+        public GroupDataInterpolation DataInterpolation;
         protected HashSet<Country> Countries = new HashSet<Country>();
 
         public Group(string name, GroupDataInterpolation interpolation = GroupDataInterpolation.LAST_KNOWN)
