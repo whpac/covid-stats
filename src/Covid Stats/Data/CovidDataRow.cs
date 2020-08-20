@@ -8,9 +8,9 @@ namespace CovidStats.Data
 {
     class CovidDataRow
     {
-        public int NewCases;
-        public int TotalCases;
-        public int NewDeaths;
-        public int TotalDeaths;
+        public int NewCases = 0;
+        public int TotalCases = 0;
+        public int NewDeaths = 0;
+        public int TotalDeaths = 0;
     }
 }
