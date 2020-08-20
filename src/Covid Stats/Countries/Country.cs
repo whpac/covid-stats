@@ -32,7 +32,7 @@ namespace CovidStats.Countries
         }
 
         /// <summary>
-        /// Returns data for a given date. If there is no data, throws an IndexOutOfRangeException
+        /// Returns data for a given date. If there is no data, returns last knows values
         /// </summary>
         /// <param name="date">Requested date</param>
         /// <returns>Data about the country</returns>
@@ -40,7 +40,19 @@ namespace CovidStats.Countries
         {
             int day_number = ParseDayIntoNumber(date);
             if(this.DataRows.ContainsKey(day_number)) return this.DataRows[day_number];
-            throw new IndexOutOfRangeException();
+
+            // Read last known
+            var dates = this.GetAvailableDates();
+            Array.Sort(dates, 0, dates.Length, new DateComparer());
+            foreach(var existing_date in dates)
+            {
+                if(existing_date < date)
+                {
+                    return this.DataRows[ParseDayIntoNumber(existing_date)];
+                }
+            }
+
+            return new CovidDataRow();
         }
 
         /// <summary>
@@ -77,6 +89,14 @@ namespace CovidStats.Countries
         protected DateTime ParseDayNumberIntoDate(int day_number)
         {
             return new DateTime(2020, 1, 1).AddDays(day_number);
+        }
+
+        class DateComparer : IComparer<DateTime>
+        {
+            public int Compare(DateTime a, DateTime b)
+            {
+                return (int)(b - a).TotalSeconds;
+            }
         }
     }
 }
