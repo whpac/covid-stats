@@ -17,6 +17,9 @@ namespace CovidStats.Countries
         /// <returns>Country</returns>
         public static Country GetCountry(string code)
         {
+            code = code.Trim();
+            if(code == "") code = "null";
+
             if(!ExistingCountries.ContainsKey(code))
             {
                 ExistingCountries[code] = new Country(code);
