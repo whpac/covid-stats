@@ -13,17 +13,16 @@ namespace CovidStats.Data.Sources
 {
     class CSVSource : DataSource
     {
-        protected string FilePath;
+        protected string Data;
 
-        public CSVSource(string path)
+        public CSVSource(string data)
         {
-            if(path.StartsWith("\"") && path.EndsWith("\"")) path = path.Substring(1, path.Length - 2);
-            this.FilePath = path;
+            this.Data = data;
         }
 
         public void Load()
         {
-            string[] data_rows = System.IO.File.ReadAllText(this.FilePath).Split('\n');
+            string[] data_rows = this.Data.Split('\n');
             for(int row_number = 0; row_number < data_rows.Length; row_number++)
             {
                 // Skip header row
