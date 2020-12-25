@@ -52,7 +52,7 @@ namespace CovidStats.Countries
                 }
             }
 
-            return new CovidDataRow();
+            return new CovidDataRow(this.Code);
         }
 
         /// <summary>

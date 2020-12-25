@@ -13,15 +13,22 @@ namespace CovidStats.Data
         public int TotalCases = 0;
         public int NewDeaths = 0;
         public int TotalDeaths = 0;
+        public string Name = "";
+
+        public CovidDataRow(string name = "")
+        {
+            this.Name = name;
+        }
 
         public static CovidDataRow operator +(CovidDataRow a, CovidDataRow b)
         {
-            CovidDataRow result = new CovidDataRow();
-
-            result.NewCases = a.NewCases + b.NewCases;
-            result.TotalCases = a.TotalCases + b.TotalCases;
-            result.NewDeaths = a.NewDeaths + b.NewDeaths;
-            result.TotalDeaths = a.TotalDeaths + b.TotalDeaths;
+            CovidDataRow result = new CovidDataRow
+            {
+                NewCases = a.NewCases + b.NewCases,
+                TotalCases = a.TotalCases + b.TotalCases,
+                NewDeaths = a.NewDeaths + b.NewDeaths,
+                TotalDeaths = a.TotalDeaths + b.TotalDeaths
+            };
 
             return result;
         }

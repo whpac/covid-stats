@@ -33,7 +33,7 @@ namespace CovidStats.Data.Sources
                 DateTime date_reported = DateTime.ParseExact(row[0], "yyyy-MM-dd", null);
                 string country_code = row[1];
 
-                CovidDataRow data = new CovidDataRow
+                CovidDataRow data = new CovidDataRow(row[2])
                 {
                     NewCases = int.Parse(row[4]),
                     TotalCases = int.Parse(row[5]),

@@ -37,6 +37,7 @@ namespace CovidStats.Countries
             {
                 joint_data += country.GetDataForDate(date);
             }
+            joint_data.Name = this.Name;
             return joint_data;
         }
 
