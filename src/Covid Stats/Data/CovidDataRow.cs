@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CovidStats.Data
 {
-    class CovidDataRow
+    public class CovidDataRow
     {
         public int NewCases = 0;
         public int TotalCases = 0;

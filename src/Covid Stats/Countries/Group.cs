@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CovidStats.Countries
 {
-    class Group
+    public class Group
     {
         public readonly string Name;
         public GroupDataInterpolation DataInterpolation;
@@ -65,7 +65,7 @@ namespace CovidStats.Countries
         }
     }
 
-    enum GroupDataInterpolation
+    public enum GroupDataInterpolation
     {
         NONE,
         LAST_KNOWN

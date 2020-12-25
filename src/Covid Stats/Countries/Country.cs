@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CovidStats.Countries
 {
-    class Country
+    public class Country
     {
         public string Code { get; private set; }
         protected Dictionary<int, CovidDataRow> DataRows = new Dictionary<int, CovidDataRow>();
