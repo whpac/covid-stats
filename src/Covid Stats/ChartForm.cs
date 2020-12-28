@@ -29,7 +29,7 @@ namespace CovidStats
             for(int i = 0; i < groups.Length; i++) series[i+1] = groups[i].Name;
             series[0] = "Świat (w tym Chiny)";
 
-            DateTime date = new DateTime(2020, 1, 6);
+            DateTime date = new DateTime(2020, 1, 3);
             while(date < DateTime.Now)
             {
                 dates.Add(this.DateToString(date));
@@ -43,24 +43,10 @@ namespace CovidStats
                 }
                 data[0].Add(sum);
 
-                date = date.AddDays(5);
+                date = date.AddDays(7);
             }
 
-            string chart_code = "{{Wykres\r\n" +
-                "|width=900\r\n" +
-                "|height=450\r\n" +
-                "|xAxisTitle=Data\r\n" +
-                " |type=line\r\n" +
-                " |yGrid=\r\n" +
-                " |xGrid=\r\n" +
-                " |xAxisAngle=-90\r\n" +
-                " |yScaleType=log\r\n" +
-                " |yAxisMin=1\r\n" +
-                " |colors=#000000, #ba2fff, #007d15, #74ff2f, #16ffff, #ff7c86, #870000, #fb7e00, #ffdd2f, #e00000, #0066ff\r\n" +
-                "|yAxisTitle=Potwierdzone przypadki zachorowań\r\n" +
-                "|yAxisFormat=,\r\n" +
-                "|legend=Legenda\r\n" +
-                "|x=";
+            string chart_code = "|x=";
             
             for(int i = 0; i < dates.Count; i++)
             {
@@ -81,7 +67,6 @@ namespace CovidStats
                 }
                 chart_code += "\r\n\r\n";
             }
-            chart_code += "}}";
             textBox1.Text = chart_code;
             this.Show();
         }
@@ -104,6 +89,7 @@ namespace CovidStats
                 case 11: res += "lis"; break;
                 case 12: res += "gru"; break;
             }
+            if(date.DayOfYear <= 7) res += " " + date.Year;
             return res;
         }
     }
